@@ -1,0 +1,15 @@
+.boxCountryList {
+  padding: 6px 12px;
+}
+
+.flagCountry {
+  width: 100%;
+}
+
+.boxItem {
+  margin-bottom: 4px;
+}
+
+.boxItem span {
+  font-weight: 600;
+}
