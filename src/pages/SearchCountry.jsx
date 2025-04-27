@@ -8,10 +8,13 @@ import CountryList from '../components/CountryList/CountryList';
 import { useEffect, useState } from 'react';
 import { fetchByRegion } from '../service/countryApi';
 import { useSearchParams, Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 const SearchCountry = () => {
   const [countriesSelect, setCountriesSelect] = useState([]);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const location = useLocation();
 
   const query = searchParams.get('query') || '';
 
@@ -45,7 +48,7 @@ const SearchCountry = () => {
         <Grid>
           {countriesSelect.map(item => (
             <GridItem key={item.id}>
-              <Link to={`/country/${item.id}`}>
+              <Link to={`/country/${item.id}`} state={location}>
                 <CountryList item={item} />
               </Link>
             </GridItem>

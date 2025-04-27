@@ -8,10 +8,11 @@ import { getCountries } from '../service/countryApi';
 import Grid from '../components/Grid/Grid';
 import GridItem from '../components/GridItem/GridItem';
 import CountryList from '../components/CountryList/CountryList';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const Home = () => {
   const [dataCountry, setDataCountry] = useState([]);
+  const location = useLocation();
 
   useEffect(() => {
     const getCountry = async () => {
@@ -33,7 +34,7 @@ const Home = () => {
         <Grid>
           {dataCountry.map(item => (
             <GridItem key={item.id}>
-              <Link to={`/country/${item.id}`}>
+              <Link to={`/country/${item.id}`} state={location}>
                 <CountryList item={item} />
               </Link>
             </GridItem>
